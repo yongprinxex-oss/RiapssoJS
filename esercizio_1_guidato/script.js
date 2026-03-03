@@ -90,6 +90,12 @@ console.log(pizzeriaAperta);
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 1.2)
 
+console.log("Tipo di nomePizzeria:", typeof nomePizzeria);
+console.log("Tipo di maxPizze:", typeof maxPizze);
+console.log("Tipo di pizzeInMenu:", typeof pizzeInMenu);
+console.log("Tipo di pizzeriaAperta:", typeof pizzeriaAperta);
+
+
 
 
 // ✅ VERIFICA: Dovresti vedere in console:
