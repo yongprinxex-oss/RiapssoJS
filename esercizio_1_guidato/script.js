@@ -64,6 +64,16 @@ console.log("Tipo di esempioPrezzo:", typeof esempioPrezzo);         // → "num
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 1.1)
 
+const nomePizzeria = "La Pizza del Codice"
+const maxPizze = 15;
+let pizzeInMenu = 0;
+let pizzeriaAperta = "true";
+
+console.log();
+console.log(nomePizzeria);
+console.log(maxPizze);
+console.log(pizzeInMenu);
+console.log(pizzeriaAperta);
 
 
 // ✅ VERIFICA: Apri la console (F12). Dovresti vedere:
