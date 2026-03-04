@@ -593,6 +593,10 @@ for (const pizza of pizzeEsempio) {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 6.1)
 
+const nomiPizze = ["Margherita", "Diavola", "4 Formaggi"];
+nomiPizze.push("Capricciosa");
+nomiPizze.pop();
+console.log(nomiPizze);     // DA FINIRE
 
 
 // ✅ VERIFICA: L'array finale ha 3 elementi (dopo il pop)
