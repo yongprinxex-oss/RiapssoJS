@@ -329,9 +329,9 @@ switch (categoria) {
     case "Stagionale":
         console.log("🌿 Ingredienti freschi di stagione");
         break;
-    case "default":
+    default:
         console.log("❓ Categoria sconosciuta");
-        break;
+
 }
 
 // ✅ VERIFICA: Dovresti vedere "🏆 Ingredienti ricercati e di alta qualità"
@@ -396,7 +396,11 @@ console.log("Somma prezzi:", sommaPrezzi); // → 47
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 4.1)
 
-
+let tavolo = 1;
+while (tavolo <= 4); {
+    console.log("Tavolo " + tavolo + " pronto");
+    tavolo++;
+}
 
 // ✅ VERIFICA: 4 righe in console "Tavolo 1 pronto" ... "Tavolo 4 pronto"
 
