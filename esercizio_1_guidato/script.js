@@ -249,7 +249,18 @@ if (prezzoPizzaEsempio >= 18) {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 3.1)
 
+let prezzoCandidata = 9.50;
+let categoriaCandidata = "Speciale";
 
+if (prezzoCandidata > 0 &&
+    categoriaCandidata !== "")
+    {
+        console.log("✅ Pizza accettata nel menu");
+    }
+    else{
+                console.log("❌ Pizza non accettata nel menu");
+
+    }
 
 // ✅ VERIFICA: Dovresti vedere "✅ Pizza accettata nel menu!" (9.50 > 0 e "Speciale" !== "")
 
