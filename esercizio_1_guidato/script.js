@@ -155,7 +155,13 @@ console.log("Posso preparare:", possoPreparare);
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 2.1)
 
+ const prezzoBase = 8.50;
+ const ricarico = 1.3;
+ const prezzoFinale = prezzoBase * ricarico;
+ const postiDisponibili = maxPizze - pizzeInMenu;
 
+console.log(prezzoFinale);
+console.log(postiDisponibili);
 
 // ✅ VERIFICA: In console dovresti vedere:
 // prezzoFinale → 11.05
@@ -171,6 +177,16 @@ console.log("Posso preparare:", possoPreparare);
 // 5. Stampa tutti e 4 i valori
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 2.2)
+
+const èConveniente = prezzoFinale < 15;
+const haPostiMenu = postiDisponibili > 0;
+const puòAggiungere = èConveniente && haPostiMenu;
+const menuPieno = !haPostiMenu;
+
+console.log(èConveniente);
+console.log(haPostiMenu);
+console.log(puòAggiungere);
+console.log(menuPieno);
 
 
 
