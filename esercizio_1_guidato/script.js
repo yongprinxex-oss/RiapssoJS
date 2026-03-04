@@ -295,6 +295,7 @@ if (prezzo >= 18) {
     fascia = "Budget";
 }
 
+console.log("fascia di prezzo:", fascia);
 
 
 // ✅ VERIFICA: Dovresti vedere "Fascia di prezzo: Gourmet" (14 >= 13)
@@ -315,7 +316,23 @@ if (prezzo >= 18) {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 3.3)
 
-
+let categoria = "Gourmet";
+switch (categoria) {
+    case "Classica":
+        console.log("🍕 Le pizze della tradizione");
+        break;
+    case "Speciale":
+        console.log("⭐ Creazioni dello chef");
+    case "Gourmet":
+        console.log("🏆 Ingredienti ricercati e di alta qualità");
+        break;
+    case "Stagionale":
+        console.log("🌿 Ingredienti freschi di stagione");
+        break;
+    case "default":
+        console.log("❓ Categoria sconosciuta");
+        break;
+}
 
 // ✅ VERIFICA: Dovresti vedere "🏆 Ingredienti ricercati e di alta qualità"
 
