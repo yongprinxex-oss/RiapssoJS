@@ -529,6 +529,13 @@ console.log(calcolaFascia(4));
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 5.2)
 
+function creaDescrizione(nome, ingredienti, prezzo) {
+    const fascia = calcolaFascia(prezzo);
+    return `🍕${nome} - Ingredienti: ${ingredienti} 
+    | Prezzo: €${ingredienti} | Fascia: $${fascia}; `
+}
+
+console.log(creaDescrizione ("Margherita", "Pomodoro, mozzarella", 8 ));
 
 
 // ✅ VERIFICA: "🍕 Margherita — Ingredienti: Pomodoro, mozzarella | Prezzo: €8 | Fascia: Media"
