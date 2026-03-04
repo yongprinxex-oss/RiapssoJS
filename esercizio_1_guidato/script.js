@@ -397,7 +397,7 @@ console.log("Somma prezzi:", sommaPrezzi); // → 47
 // 👇 SCRIVI QUI IL TUO CODICE (Step 4.1)
 
 let tavolo = 1;
-while (tavolo <= 4); {
+while (tavolo <= 4) {
     console.log("Tavolo " + tavolo + " pronto");
     tavolo++;
 }
@@ -419,8 +419,13 @@ const prezziMenu = [5, 12, 8, 18, 6, 15, 9, 22];
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 4.2)
 
-
-
+let pizzeCostose = 0;
+for( let i = 0; i < prezziMenu.length; i++){
+    if (prezziMenu[i] >= 10) {
+        pizzeCostose ++;
+    }
+}
+    console.log("Totale pizzaCostose trovate:", pizzeCostose);
 // ✅ VERIFICA: pizzeCostose → 4 (le pizze da 12, 18, 15, 22)
 
 
