@@ -420,12 +420,12 @@ const prezziMenu = [5, 12, 8, 18, 6, 15, 9, 22];
 // 👇 SCRIVI QUI IL TUO CODICE (Step 4.2)
 
 let pizzeCostose = 0;
-for( let i = 0; i < prezziMenu.length; i++){
+for (let i = 0; i < prezziMenu.length; i++) {
     if (prezziMenu[i] >= 10) {
-        pizzeCostose ++;
+        pizzeCostose++;
     }
 }
-    console.log("Totale pizzaCostose trovate:", pizzeCostose);
+console.log("Totale pizzaCostose trovate:", pizzeCostose);
 // ✅ VERIFICA: pizzeCostose → 4 (le pizze da 12, 18, 15, 22)
 
 
@@ -492,6 +492,24 @@ presentaPizza("Capricciosa", 7);  // → "Capricciosa — Costo: €7 → Vendit
 //   console.log(calcolaFascia(4));    // → "Budget"
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 5.1)
+
+function calcolaFascia(prezzo) {
+    if (prezzo >= 18) {
+        return "Premium";
+    } else if (prezzo >= 13) {
+        return "Gourmet";
+    } else if (prezzo >= 8) {
+        return "Media";
+    } else if (prezzo >= 5) {
+        return "Economica";
+    } else {
+        return "Budget";
+    }
+}
+
+console.log(calcolaFascia(20));
+console.log(calcolaFascia(10));
+console.log(calcolaFascia(4));
 
 
 
