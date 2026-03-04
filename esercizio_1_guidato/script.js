@@ -155,10 +155,10 @@ console.log("Posso preparare:", possoPreparare);
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 2.1)
 
- const prezzoBase = 8.50;
- const ricarico = 1.3;
- const prezzoFinale = prezzoBase * ricarico;
- const postiDisponibili = maxPizze - pizzeInMenu;
+const prezzoBase = 8.50;
+const ricarico = 1.3;
+const prezzoFinale = prezzoBase * ricarico;
+const postiDisponibili = maxPizze - pizzeInMenu;
 
 console.log(prezzoFinale);
 console.log(postiDisponibili);
@@ -253,14 +253,13 @@ let prezzoCandidata = 9.50;
 let categoriaCandidata = "Speciale";
 
 if (prezzoCandidata > 0 &&
-    categoriaCandidata !== "")
-    {
-        console.log("✅ Pizza accettata nel menu");
-    }
-    else{
-                console.log("❌ Pizza non accettata nel menu");
+    categoriaCandidata !== "") {
+    console.log("✅ Pizza accettata nel menu!");
+}
+else {
+    console.log("❌ Pizza rifiutata: dati incompleti");
 
-    }
+}
 
 // ✅ VERIFICA: Dovresti vedere "✅ Pizza accettata nel menu!" (9.50 > 0 e "Speciale" !== "")
 
@@ -280,6 +279,21 @@ if (prezzoCandidata > 0 &&
 // Dopo tutti gli if, stampa: console.log("Fascia di prezzo:", fascia)
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 3.2)
+
+let prezzo = 14;
+let fascia = "";
+
+if (prezzo >= 18) {
+    fascia = "Premium";
+} else if (prezzo >= 13) {
+    fascia = "Gourmet";
+} else if (prezzo >= 8) {
+    fascia = "Media";
+} else if (prezzo >= 5) {
+    fascia = "Economica";
+} else {
+    fascia = "Budget";
+}
 
 
 
