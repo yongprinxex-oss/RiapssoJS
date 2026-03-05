@@ -809,7 +809,11 @@ console.log("Titolo attuale:", titoloEl.textContent); // → "Il Nostro Menu"
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 8.1)
 
-
+const titoloMenu = document.querySelector("#titolo-menu");
+titoloMenu.textContent = "🍕 " + nomePizzeria;
+const statTotale = document.querySelector("#stat-totale");
+statTotale.textContent = menu.length;
+statTotale.style.color = "#d35400";
 
 // ✅ VERIFICA: Il titolo nella pagina è cambiato e il numero di pizze è visibile
 
