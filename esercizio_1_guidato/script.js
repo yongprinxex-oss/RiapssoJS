@@ -701,6 +701,23 @@ console.log(nomeEstratto, prezzoEstratto);         // → "Napoletana" 9.5
 // 👇 SCRIVI QUI IL TUO CODICE (Step 7.1)
 
 
+//1
+const miaPizza = {
+    nome: "Margherita",
+    ingredienti: "Pomodoro, mozzarella, basilico",
+    prezzo: 8.50,
+    disponibile: true
+};
+console.log("Nome della pizza:", miaPizza.nome);
+
+//2
+miaPizza.prezzo = 12.00;
+
+//3
+miaPizza.fascia = calcolaFascia(miaPizza.prezzo);
+
+//4
+console.log("Oggetto aggiornato:", miaPizza);
 
 // ✅ VERIFICA: L'oggetto ha 5 proprietà (nome, ingredienti, prezzo, disponibile, fascia)
 
