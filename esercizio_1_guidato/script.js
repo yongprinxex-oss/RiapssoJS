@@ -919,6 +919,7 @@ const listaPizze = document.querySelector("#lista-pizze");
 //    c. Aggiungi il <li> alla lista con: lista.appendChild(li)
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 9.1)
+
 const listaUl = document.querySelector("#lista-pizze");
 
 for (const pizza of menu) {
@@ -926,7 +927,7 @@ for (const pizza of menu) {
     // a. Crea l'elemento li
 
     const li = document.createElement("li");
-     li.innerHTML = `
+     li.innerHTML = `                           
         <div class="info-pizza">
             <span class="nome-pizza">${pizza.nome}</span>
             <span class="dettagli-pizza">${pizza.ingredienti} | €${pizza.prezzo}</span>
@@ -973,7 +974,25 @@ for (const pizza of menu) {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 9.2)
 
+const btnAggiungi = document.querySelector("#btn-aggiungi");
 
+btnAggiungi.addEventListener("click", function() {
+     const nome = document.querySelector("#input-nome").value;
+    const ingredienti = document.querySelector("#input-ingredienti").value;
+    const prezzo = Number(document.querySelector("#input-prezzo").value);
+
+    if (nome !== "" && prezzo > 0) {
+        const nuovaPizza = { nome, ingredienti, prezzo };
+
+        menu.push(nuovaPizza);
+
+        divMessaggio.textContent = "Pizza aggiunta con successo! ✅";
+        btnAggiungi(); 
+
+    } else {
+        divMessaggio.textContent = "⚠️ Inserisci dati validi!";
+    }
+});
 
 // ✅ VERIFICA: Compila il form, clicca "Aggiungi Pizza" → la pizza appare nella lista!
 
