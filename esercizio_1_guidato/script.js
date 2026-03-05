@@ -835,7 +835,16 @@ statTotale.style.color = "#d35400";
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 8.2)
 
+const inputNome = document.querySelector("#input-nome");
+let nomeInserito = inputNome.value;
 
+const inputPrezzo = document.querySelector("#input-prezzo");
+let prezzoInserito = Number(inputPrezzo.value);
+
+const divMessaggio = document.querySelector("#messaggio");
+divMessaggio.textContent = "Benvenuto nella Pizzeria!";
+divMessaggio.style.display = "block";
+divMessaggio.classList.add("msg-successo");
 
 // ✅ VERIFICA: Un messaggio verde "Benvenuto nella Pizzeria!" appare nella pagina
 
@@ -910,7 +919,21 @@ const listaPizze = document.querySelector("#lista-pizze");
 //    c. Aggiungi il <li> alla lista con: lista.appendChild(li)
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 9.1)
+const listaUl = document.querySelector("#lista-pizze");
 
+for (const pizza of menu) {
+
+    // a. Crea l'elemento li
+
+    const li = document.createElement("li");
+     li.innerHTML = `
+        <div class="info-pizza">
+            <span class="nome-pizza">${pizza.nome}</span>
+            <span class="dettagli-pizza">${pizza.ingredienti} | €${pizza.prezzo}</span>
+        </div>
+    `;
+      listaUl.appendChild(li);
+}
 
 
 // ✅ VERIFICA: Le 3 pizze del menu appaiono nella pagina!
