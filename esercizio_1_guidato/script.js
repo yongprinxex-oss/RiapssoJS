@@ -742,8 +742,17 @@ console.log("Oggetto aggiornato:", miaPizza);
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 7.2)
 
+const menu = [
+    { nome: "Margherita", ingredienti: "Pomodoro, mozzarella", prezzo: 7 },
+    { nome: "Diavola", ingredienti: "Pomodoro, mozzarella, salame piccante", prezzo: 9 },
+    { nome: "Tartufo", ingredienti: "Crema di tartufo, mozzarella, funghi", prezzo: 16 }
+];
 
-
+for (const pizza of menu) {
+    // Usiamo la destrutturazione per estrarre le proprietà
+    const { nome, prezzo } = pizza;
+    console.log(`La pizza ${nome} costa €${prezzo}`);
+}
 // ✅ VERIFICA: Vedi 3 righe tipo "Margherita — €7"
 
 
