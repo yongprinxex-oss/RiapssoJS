@@ -624,7 +624,7 @@ for (const pizza of nomiPizze) {
 }
 
 //2
-const nomiMaiuscoli = nomiPizze.map(function(testo) {
+const nomiMaiuscoli = nomiPizze.map(function (testo) {
     return testo.toUpperCase();
 });
 
@@ -927,13 +927,13 @@ for (const pizza of menu) {
     // a. Crea l'elemento li
 
     const li = document.createElement("li");
-     li.innerHTML = `                           
+    li.innerHTML = `                           
         <div class="info-pizza">
             <span class="nome-pizza">${pizza.nome}</span>
             <span class="dettagli-pizza">${pizza.ingredienti} | €${pizza.prezzo}</span>
         </div>
     `;
-      listaUl.appendChild(li);
+    listaUl.appendChild(li);
 }
 
 
@@ -976,8 +976,8 @@ for (const pizza of menu) {
 
 const btnAggiungi = document.querySelector("#btn-aggiungi");
 
-btnAggiungi.addEventListener("click", function() {
-     const nome = document.querySelector("#input-nome").value;
+btnAggiungi.addEventListener("click", function () {
+    const nome = document.querySelector("#input-nome").value;
     const ingredienti = document.querySelector("#input-ingredienti").value;
     const prezzo = Number(document.querySelector("#input-prezzo").value);
 
@@ -987,12 +987,39 @@ btnAggiungi.addEventListener("click", function() {
         menu.push(nuovaPizza);
 
         divMessaggio.textContent = "Pizza aggiunta con successo! ✅";
-        btnAggiungi(); 
 
-    } else {
+        const li = document.createElement("li");
+        li.innerHTML = `                           
+        <div class="info-pizza">
+            <span class="nome-pizza">${nuovaPizza.nome}</span>
+            <span class="dettagli-pizza">${nuovaPizza.ingredienti} | €${nuovaPizza.prezzo}</span>
+        </div>
+    `;
+        listaUl.appendChild(li);
+
         divMessaggio.textContent = "⚠️ Inserisci dati validi!";
+        return
     }
+})
+
+
+const btnReset = document.querySelector("#btn-reset");
+
+btnReset.addEventListener("click", function () {
+    // Svuota l'array (cambia la lunghezza a 0)
+
+    menu.length = 0;
+
+    // Pulisce la lista HTML
+    listaUl.innerHTML = "";
+
+    // Aggiorna le statistiche
+    statTotale.textContent = 0;
+    divMessaggio.textContent = "Menu resettato 🧹";
 });
+
+
+
 
 // ✅ VERIFICA: Compila il form, clicca "Aggiungi Pizza" → la pizza appare nella lista!
 
@@ -1184,8 +1211,6 @@ console.log("Ultimo accesso:", ultimoAccesso); // → "25/02/2026"
 //       rendi visibile con style.display = "block"
 //    d. Stampa in console: "Salvate " + menu.length + " pizze"
 
-// 👇 SCRIVI QUI IL TUO CODICE (Step 11.1)
-
 
 
 // ✅ VERIFICA: Clicca "Salva" → appare il messaggio verde + log in console
@@ -1232,8 +1257,6 @@ console.log("Ultimo accesso:", ultimoAccesso); // → "25/02/2026"
 //           alert("Nessun salvataggio trovato!");
 //       }
 
-// 👇 SCRIVI QUI IL TUO CODICE (Step 11.2)
-
 
 
 // ✅ VERIFICA: Clicca "Salva", ricarica la pagina, clicca "Carica" → le pizze riappaiono!
@@ -1259,6 +1282,7 @@ console.log("Ultimo accesso:", ultimoAccesso); // → "25/02/2026"
 // - Mostra un messaggio di conferma
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 12.1)
+
 
 
 
