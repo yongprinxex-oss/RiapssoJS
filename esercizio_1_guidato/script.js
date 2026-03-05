@@ -532,10 +532,10 @@ console.log(calcolaFascia(4));
 function creaDescrizione(nome, ingredienti, prezzo) {
     const fascia = calcolaFascia(prezzo);
     return `🍕${nome} - Ingredienti: ${ingredienti} 
-    | Prezzo: €${ingredienti} | Fascia: $${fascia}; `
+    | Prezzo: €${prezzo} | Fascia: ${fascia}; `
 }
 
-console.log(creaDescrizione ("Margherita", "Pomodoro, mozzarella", 8 ));
+console.log(creaDescrizione("Margherita", "Pomodoro, mozzarella", 8));
 
 
 // ✅ VERIFICA: "🍕 Margherita — Ingredienti: Pomodoro, mozzarella | Prezzo: €8 | Fascia: Media"
@@ -595,9 +595,10 @@ for (const pizza of pizzeEsempio) {
 
 const nomiPizze = ["Margherita", "Diavola", "4 Formaggi"];
 nomiPizze.push("Capricciosa");
+console.log("Numero totale pizze", nomiPizze.length);
+console.log("La seconda pizza è:", nomiPizze[1]);
 nomiPizze.pop();
-console.log(nomiPizze);     // DA FINIRE
-
+console.log("Array completo:", nomiPizze);
 
 // ✅ VERIFICA: L'array finale ha 3 elementi (dopo il pop)
 
@@ -617,7 +618,18 @@ console.log(nomiPizze);     // DA FINIRE
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 6.2)
 
+//1
+for (const pizza of nomiPizze) {
+    console.log(`🍕 ${pizza} è nel menu!`);
+}
 
+//2
+const nomiMaiuscoli = nomiPizze.map(function(testo) {
+    return testo.toUpperCase();
+});
+
+//3
+console.log("nomiMaiuscoli:", nomiMaiuscoli);
 
 // ✅ VERIFICA: Vedi le 3 pizze con "🍕" e poi l'array in maiuscolo
 
