@@ -1050,6 +1050,26 @@ btnReset.addEventListener("click", function () {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 9.3)
 
+function renderizzaMenu(arrayPizze) {
+    const listaUl = document.querySelector("#lista-pizze");
+     listaUl.innerHTML = "";
+
+      for (const pizza of arrayPizze) {
+        // Crea l'elemento <li>
+        const li = document.createElement("li");
+
+          li.innerHTML = `
+            <div class="info-pizza">
+                <span class="nome-pizza">${pizza.nome}</span>
+                <span class="dettagli-pizza">${pizza.ingredienti} | €${pizza.prezzo.toFixed(2)}</span>
+            </div>
+            <div class="categoria-badge">${pizza.categoria}</div>
+        `;
+        
+        listaUl.appendChild(li);
+    }
+}
+
 
 
 // ✅ VERIFICA: Scrivi nel campo ricerca → la lista si filtra in tempo reale!
@@ -1116,7 +1136,19 @@ console.log(descrizionePizza);
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 10.1)
 
+const pulisciNome = document.querySelector("#btn-reset");
 
+btnReset.addEventListener("click", function() {
+    // Svuota l'array (cambia la lunghezza a 0)
+    menu.length = 0;
+
+    renderizzaMenu(menu);
+    // Pulisce la lista HTML
+    listaUl.innerHTML = "";
+    // Aggiorna le statistiche
+    statTotale.textContent = 0;
+    divMessaggio.textContent = "Menu resettato 🧹";
+});
 
 // ✅ VERIFICA: "Margherita" e "Diavola"
 
@@ -1211,6 +1243,9 @@ console.log("Ultimo accesso:", ultimoAccesso); // → "25/02/2026"
 //       rendi visibile con style.display = "block"
 //    d. Stampa in console: "Salvate " + menu.length + " pizze"
 
+const bottone = document.querySelector("#btn-salva");
+
+click.addEventListener
 
 
 // ✅ VERIFICA: Clicca "Salva" → appare il messaggio verde + log in console
