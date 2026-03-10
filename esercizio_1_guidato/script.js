@@ -1052,20 +1052,20 @@ btnReset.addEventListener("click", function () {
 
 function renderizzaMenu(arrayPizze) {
     const listaUl = document.querySelector("#lista-pizze");
-     listaUl.innerHTML = "";
+    listaUl.innerHTML = "";
 
-      for (const pizza of arrayPizze) {
+    for (const pizza of arrayPizze) {
         // Crea l'elemento <li>
         const li = document.createElement("li");
 
-          li.innerHTML = `
+        li.innerHTML = `
             <div class="info-pizza">
                 <span class="nome-pizza">${pizza.nome}</span>
                 <span class="dettagli-pizza">${pizza.ingredienti} | €${pizza.prezzo.toFixed(2)}</span>
             </div>
             <div class="categoria-badge">${pizza.categoria}</div>
         `;
-        
+
         listaUl.appendChild(li);
     }
 }
@@ -1136,18 +1136,24 @@ console.log(descrizionePizza);
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 10.1)
 
-const pulisciNome = document.querySelector("#btn-reset");
+const pulisciMenu = document.querySelector("#btn-reset");
+function pulisciNome(nome) {
 
-btnReset.addEventListener("click", function() {
-    // Svuota l'array (cambia la lunghezza a 0)
-    menu.length = 0;
+    nome = nome.trim();
+    nome = nome.toLowerCase();
+    nome = nome.charAt(0).toUpperCase() + nome.slice(1);
 
-    renderizzaMenu(menu);
-    // Pulisce la lista HTML
-    listaUl.innerHTML = "";
-    // Aggiorna le statistiche
-    statTotale.textContent = 0;
-    divMessaggio.textContent = "Menu resettato 🧹";
+    return nome;
+}
+
+console.log(pulisciNome(" MARGHERITA "));
+console.log(pulisciNome("diavola"));
+
+
+pulisciMenu.addEventListener("click", function () {
+
+    console.log("Menu resettato");
+
 });
 
 // ✅ VERIFICA: "Margherita" e "Diavola"
@@ -1184,7 +1190,50 @@ btnReset.addEventListener("click", function() {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 10.2)
 
+function calcolaStatistiche(menu) {
 
+    let totale = menu.length;
+    let sommaPrezzi = 0;
+
+    // somma di tutti i prezzi
+    for (const pizza of menu) {
+        sommaPrezzi += pizza.prezzo;
+    }
+
+    // media prezzi
+    let media = (sommaPrezzi / totale).toFixed(2);
+
+    // trovare la pizza più cara
+    let maxPrezzo = 0;
+    let nomePiuCara = "";
+
+    for (const pizza of menu) {
+        if (pizza.prezzo > maxPrezzo) {
+            maxPrezzo = pizza.prezzo;
+            nomePiuCara = pizza.nome;
+        }
+    }
+
+    return {
+        totale: totale,
+        sommaPrezzi: sommaPrezzi,
+        media: media,
+        piuCara: nomePiuCara
+    };
+}
+
+// chiama la funzione
+const stats = calcolaStatistiche(menu);
+
+// stampa nella console
+console.log(`🍕 Menu: ${stats.totale} pizze | Media: €${stats.media} | Più cara: ${stats.piuCara}`);
+
+// aggiorna il DOM
+const statMedia = document.querySelector("#stat-media");
+const statPiuCara = document.querySelector("#stat-piu-cara");
+
+statMedia.textContent = "€" + stats.media;
+statPiuCara.textContent = stats.piuCara;
 
 // ✅ VERIFICA: Le statistiche nella pagina si aggiornano!
 
@@ -1243,9 +1292,35 @@ console.log("Ultimo accesso:", ultimoAccesso); // → "25/02/2026"
 //       rendi visibile con style.display = "block"
 //    d. Stampa in console: "Salvate " + menu.length + " pizze"
 
-const bottone = document.querySelector("#btn-salva");
 
-click.addEventListener
+//seleziona il bottone salva
+const btnSalva = document.querySelector("#btn-salva");
+
+btnSalva.addEventListener("click", function () {
+
+    // converti l'array menu in stringa
+    const menuStringa = JSON.stringify(menu);
+
+    // salva nel browser
+    localStorage.setItem("menu-pizzeria", menuStringa);
+
+    // seleziona il messaggio
+    const messaggio = document.querySelector("#messaggio");
+
+    // cambia testo
+    messaggio.textContent = "💾 Menu salvato!";
+
+    // cambia classi
+    messaggio.classList.remove("msg-errore");
+    messaggio.classList.add("msg-successo");
+
+    // mostra il messaggio
+    messaggio.style.display = "block";
+
+    // stampa nella console
+    console.log("Salvate " + menu.length + " pizze");
+
+});
 
 
 // ✅ VERIFICA: Clicca "Salva" → appare il messaggio verde + log in console
@@ -1292,6 +1367,41 @@ click.addEventListener
 //           alert("Nessun salvataggio trovato!");
 //       }
 
+const btnCarica = document.querySelector("#btn-carica");
+btnCarica.addEventListener("click", function () {
+    const salvati = localStorage.getItem("menu-pizzeria");
+
+    if (salvati !== null) {
+        menu.length = 0;
+
+        const datiCaricati = JSON.parse(salvati);
+        for (const pizza of datiCaricati) {
+            menu.push(pizza);
+        }
+
+        const lista = document.querySelector("#lista-pizze");
+        lista.innerHTML = "";
+        for (const pizza of menu) {
+
+            const li = document.createElement("li");
+            li.innerHTML = `<div class="info-pizza">
+                <span class="nome-pizza">${pizza.nome}</span>
+                <span class="dettagli-pizza"> | ${pizza.ingredienti} | €${pizza.prezzo}</span>
+            </div>`;
+
+            lista.appendChild(li);
+
+        };
+
+        document.querySelector("#stat-totale").textContent = menu.length;
+
+        alert("Menu caricato correttamente!");
+    } else {
+
+        alert("Nessun salvataggio trovato!");
+
+    }
+});
 
 
 // ✅ VERIFICA: Clicca "Salva", ricarica la pagina, clicca "Carica" → le pizze riappaiono!
