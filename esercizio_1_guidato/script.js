@@ -1428,7 +1428,36 @@ btnCarica.addEventListener("click", function () {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 12.1)
 
+const ResetMenu = document.querySelector("#btn-reset");
 
+btnReset.addEventListener("click", function () {
+
+    // svuota l'array menu
+    menu.length = 0;
+
+    // svuota la lista nel DOM
+    const lista = document.querySelector("#lista-pizze");
+    lista.innerHTML = "";
+
+    // azzerare le statistiche
+    document.querySelector("#stat-totale").textContent = 0;
+    document.querySelector("#stat-media").textContent = "€0.00";
+    document.querySelector("#stat-piu-cara").textContent = "-";
+
+    // rimuovere dati dal localStorage
+    localStorage.removeItem("menu-pizzeria");
+
+    // mostra messaggio di conferma
+    const messaggio = document.querySelector("#messaggio");
+    messaggio.textContent = "🗑️ Menu resettato!";
+    messaggio.classList.remove("msg-errore");
+    messaggio.classList.add("msg-successo");
+    messaggio.style.display = "block";
+
+    // stampo
+    console.log("Menu resettato completamente");
+
+});
 
 
 // ─────────────────────────────────────────────────────────
@@ -1455,7 +1484,46 @@ btnCarica.addEventListener("click", function () {
 
 // 👇 SCRIVI QUI IL TUO CODICE (Step 12.2)
 
+for (const pizza of menu) {
 
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+        <div class="info-pizza">
+            <span class="nome-pizza">${pizza.nome}</span>
+            <span class="dettagli-pizza"> | ${pizza.ingredienti} | €${pizza.prezzo}</span>
+        </div>
+    `;
+
+    // crea il bottone rimuovi
+    const btnRimuovi = document.createElement("button");
+    btnRimuovi.textContent = "❌";
+    btnRimuovi.classList.add("btn-danger");
+
+    btnRimuovi.addEventListener("click", function () {
+
+        // 1. trova indice della pizza
+        const indice = menu.indexOf(pizza);
+
+        // 2. rimuovi dall'array
+        menu.splice(indice, 1);
+
+        // 3. rimuovi dal DOM
+        li.remove();
+
+        // 4. aggiorna statistiche
+        document.querySelector("#stat-totale").textContent = menu.length;
+
+        console.log("Pizza rimossa:", pizza.nome);
+
+    });
+
+    // aggiunge il bottone al li
+    li.appendChild(btnRimuovi);
+
+    // aggiunge il li alla lista
+    document.querySelector("#lista-pizze").appendChild(li);
+}
 
 // ✅ VERIFICA: Se sei arrivato qui e tutto funziona, hai completato l'esercizio guidato!
 // 🎯 Ora passa all'Esercizio 2 per verificare di saper fare tutto SENZA guida!
